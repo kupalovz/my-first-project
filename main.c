@@ -1,18 +1,35 @@
 #include <stdio.h>
-void salom(void)
+// LED simulation
+void led_on(void)
 {
-  printf("Function?\n");
+  printf("[LED] ON\n");
 }
 
-void chiziq(void)
+void led_off(void)
 {
-  printf("-----------\n");
+  printf("[LED] OFF\n");
 }
+
+// Checks and warns about temperature
+
+void checks_temperature(int temp) 
+{
+  if (temp > 30)
+  {
+    printf("[WARNING] High temperature: %d C\n", temp);
+    led_on();
+    
+  }else{
+    
+    printf("[OK] Normal temperature: %d C\n", temp);
+    led_off();
+  }
+}
+
 
 int main(void)
 {
-  chiziq();
-  salom();
-  chiziq();
-  return 0;
+ checks_temperature(25);
+ checks_temperature(35);
+ return 0;
 }
