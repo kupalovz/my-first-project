@@ -1,24 +1,38 @@
 #include <stdio.h>
+#include <string.h>
 
-  typedef struct {
-    int harorat;
-    int bosim;
-    int namlik;
-  } Sensor_t;
+typedef struct {
   
-  void sensor(Sensor_t s) {
-    printf("Harorat: %d C\n", s.harorat);
-    printf("Bosim: %d hPa\n", s.bosim);
-    printf("Namlik: %d %%\n", s.namlik);
-  }
+  char marka[20];
+  int speed;
+  float oil;
   
-  int main(void){
-    Sensor_t bmp280;
-    bmp280.harorat = 30;
-    bmp280.bosim = 1200;
-    bmp280.namlik = 50;
-    
-    sensor(bmp280);
-    
-    return 0;
-  }
+} Car_t;
+
+
+void car_info(Car_t m) {
+  
+  printf("Marka : %s\n", m.marka);
+  printf("Speed: %d km/h\n", m.speed);
+  printf("Oil: %.1f litr\n", m.oil);
+}
+
+int main(){
+  
+  Car_t characters1;
+  
+  strcpy(characters1.marka, "Nexia");
+  characters1.speed = 250;
+  characters1.oil = 20.49;
+  
+  Car_t characters2;
+  
+  strcpy(characters2.marka, "Cobalt");
+  characters2.speed = 150;
+  characters2.oil = 15.58;
+  
+  car_info(characters1);
+  car_info(characters2);
+  
+  return 0;
+}
