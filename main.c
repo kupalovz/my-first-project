@@ -1,34 +1,24 @@
 #include <stdio.h>
 
-int main()
-{
-  //massiv 1
-  int numbers1[5] = {10, 20, 30, 40, 50};
-  //massiv 2
-  int numbers2[5] = {34, 17, 89, 42, 55};
+  typedef struct {
+    int harorat;
+    int bosim;
+    int namlik;
+  } Sensor_t;
   
-  int big = numbers2[0];
-  int i;
-  
-  printf("Reverse order: ");
-  
-  //Reverse order
-  for(i = 4; i >= 0; i--)
-  {
-    printf("%d ", numbers1[i]);
+  void sensor(Sensor_t s) {
+    printf("Harorat: %d C\n", s.harorat);
+    printf("Bosim: %d hPa\n", s.bosim);
+    printf("Namlik: %d %%\n", s.namlik);
   }
   
-  printf("\n");
-  //Big number
-  for(i = 1; i < 5; i++)
-  {
-    if(numbers2[i] > big)
-    {
-       big = numbers2[i];
-    }
+  int main(void){
+    Sensor_t bmp280;
+    bmp280.harorat = 30;
+    bmp280.bosim = 1200;
+    bmp280.namlik = 50;
     
+    sensor(bmp280);
+    
+    return 0;
   }
-  printf("Big num: %d\n", big);
-  
-  return 0;
-}
